@@ -1,0 +1,26 @@
+# Compiled source #
+####################
+*.map
+
+# Dependencies #
+################
+node_modules/
+bower_components/
+
+# Output files #
+################
+dist/
+build/
+.tmp/
+
+# IDE and Editor files #
+#######################
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS-generated files #
+#######################
+.DS_Store
+Thumbs.db

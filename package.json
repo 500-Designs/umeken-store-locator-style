@@ -1,0 +1,11 @@
+{
+  "name": "umeken-store-locator-style",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --watch scss/styles.scss css/styles.css"
+  },
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  }
+}

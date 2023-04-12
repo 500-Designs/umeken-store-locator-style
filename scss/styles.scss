@@ -1,0 +1,186 @@
+@font-face {
+  font-family: "Granville";
+  src: url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Italic.eot");
+  src: url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Italic.woff2")
+      format("woff2"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Italic.woff")
+      format("woff"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Italic.ttf")
+      format("truetype"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Italic.svg#GranvilleWeb-Italic")
+      format("svg");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Granville";
+  src: url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Regular.eot");
+  src: url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Regular.woff2")
+      format("woff2"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Regular.woff")
+      format("woff"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Regular.ttf")
+      format("truetype"),
+    url("https://umekendev.wpengine.com/assets/fonts/Granville/GranvilleWeb-Regular.svg#GranvilleWeb-Regular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// temp:
+
+/* .top-grid,
+.tygh-header,
+.store_tit {
+  display: none;
+}
+.tygh-content {
+  margin: 0;
+} */
+
+$font1: "DIN Pro", sans-serif;
+$font2: "Granville", sans-serif;
+$topSpace: 110px;
+$blue: #0c569a;
+$offWhite: #f9f8f7;
+$mapHeight: 645px;
+$sideBarWidth: 335px;
+
+.store_map {
+  background-color: white;
+  padding: 15px;
+}
+
+#map_canvas {
+  max-width: 1150px;
+  margin: 0 auto;
+  font-family: $font2;
+  > div:nth-child(1) {
+    position: relative;
+    > .gm-style {
+      position: relative;
+      padding-top: $topSpace;
+      [aria-label="Map"] {
+        position: relative;
+        /* top: $topSpace; */
+        &.with-sidebar {
+          width: calc(100% - 445px);
+            }
+      }
+      #div_search {
+        position: absolute;
+        #div_store_list {
+          position: absolute;
+          top: calc(#{$topSpace} + 80px);
+          height: $mapHeight;
+          padding: 30px 30px;
+          width: $sideBarWidth;
+          box-sizing: border-box;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+}
+
+#div_search {
+  margin: 0;
+  padding: 20px 0;
+  width: 100%;
+  opacity: 1;
+  background-color: white;
+  height: $topSpace;
+
+  .search {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .search_title {
+      font-family: $font2;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+    }
+    .input:nth-child(2) {
+      position: absolute;
+      bottom: -40px;
+      right: 0;
+      z-index: 1;
+      background: white;
+      width: $sideBarWidth;
+      box-sizing: border-box;
+      padding: 10px 30px 0;
+      height: 40px;
+    }
+    .input:nth-child(3) {
+      width: 100%;
+      display: flex;
+      gap: 30px;
+      #pac_input {
+        flex: 1;
+        font-family: $font1;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        background: white;
+        border: 1px solid rgba(99, 122, 135, 0.5);
+        border-radius: 50px;
+        height: 50px;
+        padding: 14px 20px;
+      }
+      #btn_submit {
+        background-color: $blue;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+        text-transform: capitalize;
+        width: 120px;
+        height: 50px;
+        border-radius: 50px;
+      }
+    }
+  }
+  .search_title {
+    font-family: $font2;
+  }
+  #div_store_list {
+    right: 0;
+  }
+}
+
+.gm-style {
+  z-index: 2;
+}
+
+[aria-label="Map"] {
+  .gm-style-iw-t {
+    .gm-style-iw-tc {
+      display: none;
+    }
+  }
+}
+#iw-container {
+  font-family: $font1;
+  #info_store_name {
+    background-color: transparent;
+    color: black;
+    text-transform: capitalize;
+    padding: 10px 15px;
+  }
+  .iw_directions {
+    border: 1px solid black;
+  }
+  
+}
