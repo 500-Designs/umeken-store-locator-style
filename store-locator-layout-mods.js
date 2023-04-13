@@ -19,16 +19,13 @@ function modSideBar() {
         const observer = new MutationObserver(() => {
             const display = getComputedStyle(storeList).display;
             if (display === 'none') {
-                console.debug('#div_store_list is set to display none');
+                storeFilter.style.display = 'none';
             } else if (display === 'block') {
-                console.debug('#div_store_list is set to display block');
                 canvas.classList.add('with-sidebar');
                 storeFilter.style.display = 'block';
             }
         });
         observer.observe(storeList, { attributes: true });
-    } else {
-        console.warn('#div_store_list not found or not added to the DOM');
     }
 }
 

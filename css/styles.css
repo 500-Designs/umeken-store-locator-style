@@ -157,15 +157,13 @@
   border: none;
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.12); }
   [aria-label="Map"] [role="dialog"] button[title="Close"] {
-    top: 5px;
-    right: 0;
-    opacity: 0.9;
-    top: 15px;
-    right: 15px;
+    top: 15px !important;
+    right: 15px !important;
     opacity: 0.9; }
     [aria-label="Map"] [role="dialog"] button[title="Close"] span {
-      width: 25px;
-      height: 25px; }
+      width: 25px !important;
+      height: 25px !important;
+      margin: 0 !important; }
 
 #iw-container {
   font-family: "DIN Pro", sans-serif; }
@@ -178,7 +176,8 @@
     font-weight: 500; }
   #iw-container .iw-content {
     padding: 0 5px 20px 15px !important;
-    font-family: "DIN Pro", sans-serif; }
+    font-family: "DIN Pro", sans-serif;
+    max-height: none !important; }
   #iw-container .iw_directions {
     background-color: transparent !important;
     width: auto !important;
