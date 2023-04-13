@@ -1,39 +1,36 @@
-
 window.onload = function () {
-    const mapCanvas = document.querySelector('#map_canvas');
-    if (mapCanvas) {
-      mapCanvas.addEventListener('load', function() {
-        console.debug('mapCanvas loaded');
-      });
+    const mapSearch = document.querySelector('#div_search');
+    if (mapSearch) {
+        modSideBar();
+    } else {
+        console.warn('mapSearch not found');
     }
-    console.debug('init store locator mods');
-    const storeFilter = document.querySelector('#div_search > div.search > div:nth-child(2)');
-
-    const renderedMap = document.querySelector('[aria-label="Map"]');
-    renderedMap.classList.add('with-sidebar');
-    const storeList = document.querySelector('#div_store_list');
-    storeFilter.style.display = 'none';
 };
 
-function observeDisplayChanges(element, onShow, onHide) {
-    const observer = new MutationObserver(() => {
-        const display = getComputedStyle(element).display;
-        if (display === 'block') {
-            onShow();
-        } else if (display === 'none') {
-            onHide();
-        }
-    });
+function modSideBar() {
+    console.debug('init modSideBar');
+    const storeFilter = document.querySelector('#div_search > div.search > div:nth-child(2)');
+    storeFilter.style.display = 'none';
+    const renderedMap = document.querySelector('[aria-label="Map"]');
+    const canvas = document.querySelector('#map_canvas');
+    const storeList = document.querySelector('#div_store_list');
 
-    observer.observe(element, { attributes: true });
+    if (storeList && document.body.contains(storeList)) {
+        const observer = new MutationObserver(() => {
+            const display = getComputedStyle(storeList).display;
+            if (display === 'none') {
+                console.debug('#div_store_list is set to display none');
+            } else if (display === 'block') {
+                console.debug('#div_store_list is set to display block');
+                canvas.classList.add('with-sidebar');
+                storeFilter.style.display = 'block';
+            }
+        });
+        observer.observe(storeList, { attributes: true });
+    } else {
+        console.warn('#div_store_list not found or not added to the DOM');
+    }
 }
 
 
 
-observeDisplayChanges(storeList, () => {
-    console.debug('SHOWN...');
-    storeFilter.style.display = 'block';
-}, () => {
-    console.debug('HIDDEN...');
-    storeFilter.style.display = 'none';
-});

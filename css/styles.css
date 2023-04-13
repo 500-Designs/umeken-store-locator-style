@@ -14,14 +14,22 @@
   font-style: normal;
   font-display: swap; }
 
-/* .top-grid,
-.tygh-header,
-.store_tit {
-  display: none;
-}
-.tygh-content {
-  margin: 0;
-} */
+@font-face {
+  font-family: "DIN Pro";
+  src: url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINPro-Light.eot");
+  src: url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINPro-Light.eot?#iefix") format("embedded-opentype"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINPro-Light.woff2") format("woff2"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINPro-Light.woff") format("woff"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINPro-Light.ttf") format("truetype"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINPro-Light.svg#DINPro-Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "DIN Pro";
+  src: url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINNextLTPro-Medium.eot");
+  src: url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINNextLTPro-Medium.eot?#iefix") format("embedded-opentype"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINNextLTPro-Medium.woff2") format("woff2"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINNextLTPro-Medium.woff") format("woff"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINNextLTPro-Medium.ttf") format("truetype"), url("https://umekendev.wpengine.com/assets/fonts/DINPro/DINNextLTPro-Medium.svg#DINNextLTPro-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; }
+
 .store_map {
   background-color: white;
   padding: 15px; }
@@ -36,24 +44,49 @@
       position: relative;
       padding-top: 110px; }
       #map_canvas > div:nth-child(1) > .gm-style [aria-label="Map"] {
-        position: relative;
-        /* top: $topSpace; */ }
-        #map_canvas > div:nth-child(1) > .gm-style [aria-label="Map"].with-sidebar {
-          width: calc(100% - 445px); }
+        position: relative; }
       #map_canvas > div:nth-child(1) > .gm-style #div_search {
         position: absolute; }
         #map_canvas > div:nth-child(1) > .gm-style #div_search #div_store_list {
           position: absolute;
-          top: calc(110px + 80px);
+          top: calc(110px + 70px);
           height: 645px;
           padding: 30px 30px;
-          width: 335px;
+          width: 385px;
           box-sizing: border-box;
-          margin: 0; }
+          margin: 0;
+          z-index: 2; }
+          #map_canvas > div:nth-child(1) > .gm-style #div_search #div_store_list:after {
+            content: "";
+            position: absolute;
+            width: 385px;
+            height: 300px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(254, 251, 247, 0.3) 43.77%, rgba(255, 255, 255, 0.377543) 50%, #ffffff 100%); }
+  #map_canvas.with-sidebar [aria-label="Map"] {
+    position: relative;
+    top: 110px !important;
+    left: -200px !important; }
+  #map_canvas.with-sidebar:after {
+    content: " ";
+    width: 385px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(254, 251, 247, 0.3) 43.77%, rgba(255, 255, 255, 0.377543) 50%, #FFFFFF 100%);
+    pointer-events: none;
+    border-bottom: white 5px solid; }
+  #map_canvas [aria-label="Toggle fullscreen view"] {
+    top: auto !important;
+    left: auto !important;
+    bottom: 0 !important;
+    right: 0 !important; }
+  #map_canvas .gm-bundled-control {
+    display: none !important; }
 
 #div_search {
   margin: 0;
-  padding: 20px 0;
   width: 100%;
   opacity: 1;
   background-color: white;
@@ -65,7 +98,10 @@
     border: none;
     display: flex;
     flex-direction: column;
-    gap: 20px; }
+    gap: 20px;
+    z-index: 2;
+    position: relative;
+    padding: 20px 0; }
     #div_search .search .search_title {
       font-family: "Granville", sans-serif;
       font-style: normal;
@@ -77,9 +113,9 @@
       right: 0;
       z-index: 1;
       background: white;
-      width: 335px;
+      width: 385px;
       box-sizing: border-box;
-      padding: 10px 30px 0;
+      padding: 20px 30px 0;
       height: 40px; }
     #div_search .search .input:nth-child(3) {
       width: 100%;
@@ -116,12 +152,81 @@
 [aria-label="Map"] .gm-style-iw-t .gm-style-iw-tc {
   display: none; }
 
+[aria-label="Map"] [role="dialog"] {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.12); }
+  [aria-label="Map"] [role="dialog"] button[title="Close"] {
+    top: 5px;
+    right: 0;
+    opacity: 0.9;
+    top: 15px;
+    right: 15px;
+    opacity: 0.9; }
+    [aria-label="Map"] [role="dialog"] button[title="Close"] span {
+      width: 25px;
+      height: 25px; }
+
 #iw-container {
   font-family: "DIN Pro", sans-serif; }
   #iw-container #info_store_name {
     background-color: transparent;
     color: black;
     text-transform: capitalize;
-    padding: 10px 15px; }
+    padding: 10px 15px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 500; }
+  #iw-container .iw-content {
+    padding: 0 5px 20px 15px !important;
+    font-family: "DIN Pro", sans-serif; }
   #iw-container .iw_directions {
-    border: 1px solid black; }
+    background-color: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 20px auto 0 0 !important;
+    float: left; }
+    #iw-container .iw_directions a {
+      display: inline-flex;
+      border: 1px solid black;
+      background-color: white;
+      color: black !important;
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: capitalize;
+      width: 215px;
+      font-family: "DIN Pro", sans-serif;
+      height: 50px;
+      border-radius: 50px;
+      align-items: center;
+      justify-content: start;
+      padding: 0 30px;
+      background-image: url("https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-arrow-right-thin.png");
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: 25px 25px;
+      background-position: 90% center; }
+
+#div_store_list .list {
+  border-bottom: 1px solid rgba(3, 6, 7, 0.1);
+  color: #212121; }
+  #div_store_list .list .store_name .store_nm_no_w,
+  #div_store_list .list .store_name .store_nm_no_s {
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-image: none;
+    color: grey;
+    top: -2px;
+    position: relative; }
+  #div_store_list .list .store_name .store_nm_no_s {
+    color: #0c569a; }
+  #div_store_list .list .store_name .store_nm_ttl {
+    font-size: 16px;
+    font-family: "DIN Pro", sans-serif;
+    color: black;
+    font-weight: 500; }
+  #div_store_list .list li > img {
+    height: 20px;
+    margin: 10px 0;
+    display: block; }
